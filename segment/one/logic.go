@@ -46,6 +46,7 @@ func init() {
 }
 
 // splitFile rehash url to one file
+// TODO: SplitFile in parallel with goroutines
 func SplitFile(filepath string) error {
 	file, err := os.Open(filepath)
 	if err != nil {
@@ -74,6 +75,7 @@ func SplitFile(filepath string) error {
 }
 
 // calTopNPerFile calculate topN of splitFiles[index].file
+// TODO: CalTopNPerFile in parallel with goroutines
 func CalTopNPerFile(index int) error {
 	var countTable = make(map[string]int, 1<<10) // store url counts。it will take up memory；Escape analysis will assign it to the stack
 
@@ -106,6 +108,7 @@ func CalTopNPerFile(index int) error {
 	// transfer minheap to increasing list
 	var obj = splitFiles[index].heap.Pop()
 	for obj.count > math.MinInt64 {
+		// TODO: remove list, just use heap.tree as the list container
 		splitFiles[index].list = append(splitFiles[index].list, obj)
 		obj = splitFiles[index].heap.Pop()
 	}

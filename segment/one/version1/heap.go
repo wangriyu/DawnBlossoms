@@ -1,12 +1,12 @@
-package one
+package version1
 
 import (
 	"math"
 )
 
 type UrlObj struct {
-	url   string
-	count int
+	Url   string
+	Count int
 }
 
 type MinHeap struct {
@@ -17,7 +17,7 @@ type MinHeap struct {
 
 func NewMinHeap(max int) *MinHeap {
 	heap := &MinHeap{max: max, tree: make([]UrlObj, 1, max)}
-	heap.tree[0] = UrlObj{count: math.MinInt64}
+	heap.tree[0] = UrlObj{Count: math.MinInt64}
 	return heap
 }
 
@@ -29,7 +29,7 @@ func (heap *MinHeap) Push(x UrlObj) {
 	heap.tree = append(heap.tree, x)
 	heap.len++
 	i := heap.len
-	for ; heap.tree[i/2].count > x.count; i /= 2 {
+	for ; heap.tree[i/2].Count > x.Count; i /= 2 {
 		heap.tree[i] = heap.tree[i/2]
 	}
 	heap.tree[i] = x
@@ -37,9 +37,9 @@ func (heap *MinHeap) Push(x UrlObj) {
 
 func (heap *MinHeap) Top() int {
 	if heap.len <= 0 {
-		return heap.tree[0].count
+		return heap.tree[0].Count
 	}
-	return heap.tree[1].count
+	return heap.tree[1].Count
 }
 
 func (heap *MinHeap) Pop() UrlObj {
@@ -49,10 +49,10 @@ func (heap *MinHeap) Pop() UrlObj {
 		var i, child int
 		for i = 1; i*2 <= heap.len; i = child {
 			child = i * 2
-			if child < heap.len && heap.tree[child+1].count < heap.tree[child].count {
+			if child < heap.len && heap.tree[child+1].Count < heap.tree[child].Count {
 				child++
 			}
-			if last.count > heap.tree[child].count {
+			if last.Count > heap.tree[child].Count {
 				heap.tree[i] = heap.tree[child]
 			} else {
 				break

@@ -12,8 +12,8 @@ import (
 )
 
 const (
-	SplitFileNum = 20 // the split files number
-	TopN         = 10
+	SplitFileNum = 200 // the split files number
+	TopN         = 100
 )
 
 type SplitObj struct {
@@ -82,7 +82,7 @@ func CalFinalTopN(filepath string) ([]UrlObj, error) {
 		}
 		topN = append(topN, max)
 	}
-	log.Println("v2 calTopN: ", time.Now().Sub(t1).String())
+	log.Println("v1 calTopN: ", time.Now().Sub(t1).String())
 
 	return topN, nil
 }

@@ -15,8 +15,8 @@ import (
 )
 
 const (
-	SplitFileNum = 20 // the split files number
-	TopN         = 10
+	SplitFileNum = 200 // the split files number
+	TopN         = 100
 )
 
 type SplitObj struct {
@@ -113,9 +113,6 @@ func SplitFile(filepath string) {
 				wg.Done()
 				// if err := recover(); err != nil {
 				// 	log.Println(err)
-				// 	if e , ok := err.(error); ok {
-				// 		errCh <- e
-				// 	}
 				// }
 			}()
 			for {
@@ -146,18 +143,14 @@ func produceMsg(cancel context.CancelFunc, filepath string, eofCh chan bool) {
 	// defer func() {
 	// 	if err := recover(); err != nil {
 	// 		log.Println(err)
-	// 		if e , ok := err.(error); ok {
-	// 			errCh <- e
-	// 		}
 	// 		cancel()
 	// 	}
 	// }()
 
 	file, err := os.Open(filepath)
 	if err != nil {
-		log.Println(err)
+		log.Println("Failed to open "+filepath, err)
 		panic(err)
-		return
 	}
 	defer file.Close()
 
@@ -165,14 +158,11 @@ func produceMsg(cancel context.CancelFunc, filepath string, eofCh chan bool) {
 	for {
 		line, _, err := buf.ReadLine()
 		if err != nil {
-			log.Println(err)
 			if err == io.EOF {
 				close(eofCh)
 				return
 			}
 			panic(err)
-			cancel()
-			return
 		}
 		if matchedAlice := regForURL.FindAll(line, -1); len(matchedAlice) > 0 {
 			for _, v := range matchedAlice {

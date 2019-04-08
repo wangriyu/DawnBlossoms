@@ -3,13 +3,12 @@ package main
 import (
 	"flag"
 	"log"
-	"time"
 	"net/http"
+	"time"
 
 	_ "github.com/mkevac/debugcharts"
 	_ "net/http/pprof"
 
-	"github.com/wangriyu/DawnBlossoms/segment/one/version1"
 	"github.com/wangriyu/DawnBlossoms/segment/one/version2"
 )
 
@@ -31,8 +30,8 @@ func main() {
 	}
 
 	if len(*filePath) > 0 {
-		testVersion1(*filePath)
-		// testVersion2(*filePath)
+		// testVersion1(*filePath)
+		testVersion2(*filePath)
 	} else {
 		log.Fatalln("file arguments not found")
 	}
@@ -55,19 +54,19 @@ func testVersion2(filepath string) {
 	}
 }
 
-func testVersion1(filepath string) {
-	start := time.Now()
-	log.Println("v1 start: ", start.String())
-
-	defer func() {
-		end := time.Now()
-		log.Println("v1 end: ", end.String())
-		log.Println("v1 duration: ", end.Sub(start).String())
-	}()
-
-	if topHundred, err := version1.CalFinalTopN(filepath); err != nil {
-		log.Fatalln(err)
-	} else {
-		log.Println("v1 result: ", topHundred)
-	}
-}
+// func testVersion1(filepath string) {
+// 	start := time.Now()
+// 	log.Println("v1 start: ", start.String())
+//
+// 	defer func() {
+// 		end := time.Now()
+// 		log.Println("v1 end: ", end.String())
+// 		log.Println("v1 duration: ", end.Sub(start).String())
+// 	}()
+//
+// 	if topHundred, err := version1.CalFinalTopN(filepath); err != nil {
+// 		log.Fatalln(err)
+// 	} else {
+// 		log.Println("v1 result: ", topHundred)
+// 	}
+// }

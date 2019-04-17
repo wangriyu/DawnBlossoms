@@ -96,7 +96,7 @@ func CalFinalTopN(filepath string) ([]UrlObj, error) {
 	}
 }
 
-// SplitFile rehash url to one file
+// SplitFile rehash url to find-topn-urls file
 func SplitFile(filepath string) {
 	eofCh := make(chan bool)
 

@@ -87,7 +87,7 @@ func CalFinalTopN(filepath string) ([]UrlObj, error) {
 	return topN, nil
 }
 
-// splitFile rehash url to one file
+// splitFile rehash url to find-topn-urls file
 // TODO: SplitFile in parallel with goroutines
 func SplitFile(filepath string) error {
 	file, err := os.Open(filepath)

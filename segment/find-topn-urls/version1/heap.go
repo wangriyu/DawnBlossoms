@@ -21,7 +21,7 @@ func NewMinHeap(max int) *MinHeap {
 	return heap
 }
 
-// TODO: replace new item with top one when heap.len >= heap.max
+// TODO: replace new item with top find-topn-urls when heap.len >= heap.max
 func (heap *MinHeap) Push(x UrlObj) {
 	if heap.len >= heap.max {
 		heap.Pop()

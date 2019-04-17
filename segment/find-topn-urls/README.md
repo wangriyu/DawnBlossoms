@@ -4,6 +4,8 @@
 
 MacBook Pro (Mid 2015), OSX 10.14.1, 2.5 GHz Intel Core i7, 16 GB 1600 MHz DDR3
 
+Go version go1.11.4 darwin/amd64
+
 ### Test sample
 
 ```dash

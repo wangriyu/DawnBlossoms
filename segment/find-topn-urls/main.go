@@ -9,7 +9,7 @@ import (
 	_ "github.com/mkevac/debugcharts"
 	_ "net/http/pprof"
 
-	"github.com/wangriyu/DawnBlossoms/segment/one/version2"
+	"github.com/wangriyu/DawnBlossoms/segment/find-topn-urls/version2"
 )
 
 const enablePprof = true

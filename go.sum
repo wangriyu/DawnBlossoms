@@ -10,6 +10,8 @@ github.com/mkevac/debugcharts v0.0.0-20180124214838-d3203a8fa926 h1:RO2b3nhIiwFO
 github.com/mkevac/debugcharts v0.0.0-20180124214838-d3203a8fa926/go.mod h1:DFtsJNc3AsN/BqWzur7rmLJI+fr7L6owUVZuvkNv1Oc=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
+github.com/psilva261/timsort v0.0.0-20181228194941-fa3a1b6085e1 h1:HdW+s4ZOPJikTieR/2iKeLSWhVMonTeEmM0iJ2Y3AYI=
+github.com/psilva261/timsort v0.0.0-20181228194941-fa3a1b6085e1/go.mod h1:A8+Z2Fj0C9YkZsu68fTEWYfBL39c58HfXX0fMrse5p4=
 github.com/shirou/gopsutil v2.18.12+incompatible h1:1eaJvGomDnH74/5cF4CTmTbLHAriGFsTZppLXDX93OM=
 github.com/shirou/gopsutil v2.18.12+incompatible/go.mod h1:5b4v6he4MtMOwMlS0TUMTu2PcXUg8+E1lC7eC3UO/RA=
 github.com/shirou/w32 v0.0.0-20160930032740-bb4de0191aa4 h1:udFKJ0aHUL60LboW/A+DfgoHVedieIzIXE8uylPue0U=

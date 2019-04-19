@@ -1,8 +1,4 @@
-package main
-
-import (
-	"log"
-)
+package logic
 
 // A valid float looks like "1", "+1.1", "-1.3e10", "-1.3e-2".
 // A string may have a prefix that is a valid float.
@@ -15,26 +11,7 @@ import (
 // "-1.1e3.3" -> "-1.1e3"
 // "-1.1e." -> "-1.1"
 // “1e1” -> "1e1"
-
-func main() {
-	test := []string{
-		"1.1a",
-		"abc",
-		"-1.1e3.3",
-		"-1.1e.",
-		"1e1",
-		"55e",
-		"1",
-		"+1..1",
-		"-1.3e.10",
-		"-1.3e-2.5",
-	}
-	for _, v := range test {
-		log.Println(v, "---", string(findFloatPrefix(v)))
-	}
-}
-
-func findFloatPrefix(source string) (result []byte) {
+func FindFloatPrefix(source string) (result []byte) {
 	var t uint
 label:
 	for _, b := range source {
